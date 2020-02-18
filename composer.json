@@ -1,0 +1,9 @@
+{
+    "autoload":{
+        "psr-4":{
+            "App\\":"App/"
+        }
+    }
+}
+
+//https://www.youtube.com/watch?v=W2tBNzN_xgk
