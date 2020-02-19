@@ -7,19 +7,15 @@ use App\Model\CategoriaDAO;
 
 require_once("../vendor/autoload.php");
 
-  $conta = new Conta();
- 
-  $conta->setDescricaoConta('Pagamento de Energia mês de Fevereiro.');    
-  $data_pagamento = date('dd-mm-YYYY', 27/02/2020);  
-  
-  $conta->setIdCategoriaConta(6);
-  $conta->setDataPagamento($data_pagamento);
+$conta = new Conta();
+//$conta->setIdCategoriaConta(1);
+$conta->setIdConta(2);
+$conta->setDescricaoConta('Pagamento de Gás');
+//$conta->setDataPagamento('20/02/2020');
 
-  
-  $contaDAO = new ContaDAO();
+$contaDAO = new ContaDAO();
+//$contaDAO->create($conta);
 
-  $contaDAO->create($conta);
-
-  
+$contaDAO->update($conta);  
   
 ?>
