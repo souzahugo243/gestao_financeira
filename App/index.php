@@ -1,21 +1,22 @@
 <?php
-use App\Model\Conta;
-use App\Model\ContaDAO;
+require_once("Core/Core.php");
+require_once("Controller/HomeController.php");
+require_once("Controller/ErroController.php");
 
-use App\Model\Categoria;
-use App\Model\CategoriaDAO;
+require_once("Model/Categoria.php");
 
-require_once("../vendor/autoload.php");
+$template = file_get_contents('Template/estrutura.html');
 
-$conta = new Conta();
-//$conta->setIdCategoriaConta(1);
-$conta->setIdConta(2);
-$conta->setDescricaoConta('Pagamento de Gás');
-//$conta->setDataPagamento('20/02/2020');
+ob_start();
+$core = new Core;
 
-$contaDAO = new ContaDAO();
-//$contaDAO->create($conta);
+$core->start($_GET);
+$saida = ob_get_contents();
 
-$contaDAO->update($conta);  
+ob_end_clean();
+
+$template_ok = str_replace('{{area_dinamica}}', $saida, $template);
+echo $template_ok;
+
   
 ?>
