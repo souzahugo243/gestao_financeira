@@ -6,7 +6,7 @@
 
        public function index()
        {        
-                  
+          CategoriaConta::selecionaTodas();        
        }
 
   }
