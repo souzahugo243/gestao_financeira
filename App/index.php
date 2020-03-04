@@ -3,7 +3,7 @@ require_once("Core/Core.php");
 require_once("Controller/HomeController.php");
 require_once("Controller/ErroController.php");
 
-require_once("Model/Categoria.php");
+require_once("Model/CategoriaConta.php");
 
 require_once("../vendor/autoload.php");
 
