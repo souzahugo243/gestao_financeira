@@ -5,6 +5,8 @@ require_once("Controller/ErroController.php");
 
 require_once("Model/Categoria.php");
 
+require_once("../vendor/autoload.php");
+
 $template = file_get_contents('Template/estrutura.html');
 
 ob_start();
