@@ -1,10 +1,16 @@
 <?php
+// Core
 require_once("Core/Core.php");
+
+// Controller Call
 require_once("Controller/HomeController.php");
 require_once("Controller/ErroController.php");
+require_once("Controller/CategoriaController.php");
 
-require_once("Model/CategoriaConta.php");
+// Model
+require_once("Model/Categoria.php");
 
+// Composer Autoload
 require_once("../vendor/autoload.php");
 
 $template = file_get_contents('Template/estrutura.html');
