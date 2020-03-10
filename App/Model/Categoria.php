@@ -3,7 +3,8 @@
  require_once('lib/database/Conexao.php');
 
   class Categoria{
-      public static function selecionaTodas(){
+      
+    public static function selecionaTodas(){
            
         $conexao = Conexao::getConexao();
         
@@ -23,7 +24,30 @@
 
         return $resultado;
         
-      }                           
+      }
+      
+     public static function inserirCategoria($dadosPOST){
+        
+        $conexao = Conexao::getConexao();
+        
+        $SQL = 'INSERT INTO 
+             categoriaConta(
+                            descricao
+                           )
+                     VALUES(
+                            :descricao
+                            ) ';
+        $SQL = $conexao->prepare($SQL);
+        $SQL->bindParam(':descricao', $dadosPOST['descricaoCategoria'], PDO::PARAM_STR);
+        $resultado = $SQL->execute();
+        
+        if ($resultado == 0){
+          throw new Exception("Não foi possivel inserir Categoria, verifique!");
+          return false;          
+        }
+
+        return true;
+     } 
   }
 
 ?>
