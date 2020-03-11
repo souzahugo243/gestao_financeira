@@ -28,7 +28,7 @@
         header('Location: http://localhost/gestao_financeira/App/?pagina=Categoria');
         
        } catch (Exception $E) {
-         
+         //Tratando Exceção.
        }
      }
  }

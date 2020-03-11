@@ -7,24 +7,29 @@
       </div>
       <div class="col-md-11 mb-3">
         <label for="validationDefault04">Descrição</label>      
-        <input type="text" class="form-control" name="descricaoCategoria" required>       
+        <input type="text" class="form-control" name="descricaoCategoria" required autocomplete="off">       
       </div>    
     </div>   
-    <button class="btn btn-success" type="submit">Registrar</button>
+    <button class="btn btn-outline-success" type="submit">Registrar</button>
   </form>
     <hr>
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
           <th scope="col">Código</th>
-          <th scope="col">Descrição</th>                           
+          <th scope="col">Descrição</th>
+          <th scope="col">Comandos</th>                           
         </tr>
       </thead>
       <tbody>
       {% for categoria in categorias %}  
         <tr>
           <td>{{categoria.idCategoriaConta}}</td>
-          <td>{{categoria.descricao}}</td>          
+          <td>{{categoria.descricao}}</td>
+          <td width="20%">
+          <button type="submit" class="btn btn-outline-primary" style="margin-bottom:5px;">Alterar</button>
+          <button type="submit" class="btn btn-outline-danger"  style="margin-bottom:5px;">Excluir</button>
+          </td>          
         </tr>
       {% endfor %}   
       </tbody>
