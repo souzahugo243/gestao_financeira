@@ -39,7 +39,18 @@
         border-bottom: 1px dashed #ddd;
         margin: 40px 0;
     }
-
+    
+    /*----------------------------------------------------
+        DIV / ID Adicionados ao Decorrer do Projeto
+    -----------------------------------------------------*/
+    #navbarSupportedContent  ul li{
+        color: #3CB371;
+    }
+    /* #navbarSupportedContent  ul li:hover{
+        color: black;
+        border-radius: 5px;
+        box-shadow: 7px 7px;       
+    } */
     /* ---------------------------------------------------
         SIDEBAR STYLE
     ----------------------------------------------------- */
@@ -136,8 +147,6 @@
         background: #2E8B57 !important;
         color: #fff !important;
     }
-
-
 
     /* ---------------------------------------------------
         CONTENT STYLE

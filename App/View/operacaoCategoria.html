@@ -1,0 +1,29 @@
+<section>  
+    <form method="post" action="?pagina=categoria&metodo={{metodoOperacao}}">     
+      <div class="form-row">
+        <div class="col-md-1 mb-3">
+          <label for="validationDefault03">Código</label>
+          <input type="text" class="form-control" name="codigoCategoria" readonly="true" value="{{idCategoriaConta}}" autocomplete="off">
+        </div>
+        <div class="col-md-11 mb-3">
+          <label for="validationDefault04">Descrição</label>      
+          <input type="text" class="form-control" name="descricaoCategoria" required  value="{{descricao}}" autocomplete="off">       
+        </div>    
+      </div>   
+      <button class="btn btn-outline-success" type="submit">
+        {% if idCategoriaConta > 0 %}
+           Alterar
+        {% endif %}
+        {% if idCategoriaConta == 0 %}
+           Cadastrar
+        {% endif %}        
+      </button>
+    </form> 
+  </section>
+  
+
+
+
+
+         
+   

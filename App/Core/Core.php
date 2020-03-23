@@ -16,16 +16,17 @@
         $controller = 'HomeController';  
        }       
         
-
        if (!class_exists($controller)){
           $controller = 'ErroController';
        }
 
        if (isset($urlGet['id']) && $urlGet['id'] != null){
-          $id = $urlGet;
+          $id = $urlGet['id'];        
        }else{
-          $id = null;
+          $id = null;        
        }
+       
+       
 
        call_user_func_array(array(new $controller, $acao), array('id' => $id));
     }

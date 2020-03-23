@@ -25,9 +25,44 @@
         return $resultado;
         
       }
+
+      public static function selecionaPorID($idCategoriaConta){
+        $conexao = Conexao::getConexao();
+
+        $SQL = 'SELECT idCategoriaConta
+                ,      descricao 
+                  FROM categoriaconta
+                 WHERE idCategoriaConta = :idCategoriaConta ';
+        
+        $SQL = $conexao->prepare($SQL);
+        $SQL->bindParam(':idCategoriaConta', $idCategoriaConta, PDO::PARAM_INT);
+        $SQL->execute();
+
+        $resultado = $SQL->fetchObject('Categoria');
+
+        if (!$resultado){
+          throw new Exception('Não foi encontrado nenhuma categoria correspondente!');          
+        }else{
+          
+          while($row = $SQL->fetchObject('Categoria')){
+              $resultado[] = $row;
+              
+          }
+        }
+
+        return $resultado;
+
+      }
       
      public static function inserirCategoria($dadosPOST){
         
+       if (empty($dadosPOST['descricaoCategoria'])){
+         
+         throw new Exception('Preencha todos os campos');
+         return false;
+         
+       }
+
         $conexao = Conexao::getConexao();
         
         $SQL = 'INSERT INTO 
@@ -48,6 +83,26 @@
 
         return true;
      } 
+
+     public static function alterarCategoria($dadosPOST){
+       $conexao = Conexao::getConexao();
+                     
+       $SQL = 'UPDATE categoriaconta 
+                  SET descricao = :descricao 
+                WHERE idCategoriaConta = :idCategoria ';
+       
+       $SQL = $conexao->prepare($SQL);
+       $SQL->bindParam(':descricao',   $dadosPOST['descricaoCategoria'], PDO::PARAM_STR);
+       $SQL->bindParam(':idCategoria', $dadosPOST['codigoCategoria'],    PDO::PARAM_INT);
+       $resultado = $SQL->execute();
+       
+       if ($resultado == 0){
+          throw new Exception('Não foi Possível Alterar a Categoria, Ocorreu algum erro, verifique');                   
+       }
+       else{
+         return true;
+       }
+     }
   }
 
 ?>
